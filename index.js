@@ -81,14 +81,6 @@ client.on("messageCreate", async message => {
 			}
 		}        
 
-    
-
-	if(message.author.id == "1003825112425955368") {
-		if(message.content.startsWith(",tip 100$ mango")) {
-			await message.react('💊')
-			await message.react('✅')
-		}
-	}
 
 	if(message.channel.id == '1004067291899637770') {
 		if(message.content == "!mangos") {}
@@ -99,58 +91,7 @@ client.on("messageCreate", async message => {
 		else {message.delete()};
 	} 
 
-	if(message.content == ("!test")) {
-		const uid = message.author.id;
-		if(message.channel.id == '1004067291899637770') {
-			if(message.author.id == "330677994442063873") {
-				const random  = Math.floor(Math.random() * (1000 - 250 + 1)) + 250;
-				if(message.member.roles.cache.has('956510885269094421')) {
-					const viprandom = Math.floor(Math.random() * 6);
-					const rate = 2.0 + 0.1 * viprandom
-					const goodmangos = random * rate;
-					const collectionx = firedb.collection('timeouts');
-					let doc = await collectionx.doc(`${uid}`).get();
-					if (!doc.exists) {
-						await collectionx.doc(`${uid}`).set({
-							timestamp: Date.now()+5000
-						});
-						message.channel.send(`.tip ${goodmangos} mango ${message.author}`)
-					} else {
-						if(doc.data().timestamp<Date.now()) {
-							await collectionx.doc(`${uid}`).set({
-								timestamp: Date.now()+5000
-							});
-							message.channel.send(`.tip ${goodmangos} mango ${message.author}`)
-						} else {
-							message.react('❌');
-						}
-					}
-					//debug note
-					//message.channel.send(`debug: rate: ${rate}, mangos without rate: ${random}, mangos with rate: ${goodmangos}`)
-				} else {
-					const collectionx = firedb.collection('timeouts');
-					let doc = await collectionx.doc(`${uid}`).get();
-					if (!doc.exists) {
-						await collectionx.doc(`${uid}`).set({
-							timestamp: Date.now()+5000
-						});
-						message.channel.send(`.tip ${random} mango ${message.author}`)
-					} else {
-						if(doc.data().timestamp<Date.now()) {
-							await collectionx.doc(`${uid}`).set({
-								timestamp: Date.now()+5000
-							});
-							message.channel.send(`.tip ${random} mango ${message.author}`)
-						} else {
-							message.react('❌');
-						}
-					}
-				}
-			} else {
-				message.channel.send(`Only avile can talk to me like that >:C`)
-			}
-		}        
-    }
+	
 
 	if(message.content.toLowerCase() == ("!mangoflip")) {
 		const result = Math.floor(Math.random() * 2);
