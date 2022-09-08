@@ -96,9 +96,9 @@ client.on("messageCreate", async message => {
 	if(message.content.toLowerCase() == ("!mangoflip")) {
 		const result = Math.floor(Math.random() * 2);
 		if(result == 0) {
-			message.channel.send(`You rolled a Mango <:MangoCoin2:957984646631669780><:MangoCoin2:957984646631669780><:MangoCoin2:957984646631669780>`);
+			message.channel.send(`You rolled Mangos !! <:MangoInu:955215391888638013> <:MangoCoin2:957984646631669780> <:MangoCoin2:957984646631669780>`);
 		} else if (result == 1) {
-			message.channel.send(`You rolled an Orange <:MangoBall:988051322282586222><:MangoBall:988051322282586222><:MangoBall:988051322282586222>`);
+			message.channel.send(`You got some balls <:MangoSus:955598199597436938> <:MangoBall:988051322282586222> <:MangoBall:988051322282586222>`);
 		} else {
 			message.channel.send(`An error occured`);
 		}
